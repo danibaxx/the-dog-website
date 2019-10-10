@@ -1,23 +1,25 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import { useLocalStorage } from "./utils/input";
-import { useDogImages } from "./utils/api";
+// import { useDogImages } from "./utils/api";
+
 
 function App(props) {
   // we're calling our custom hooks here, and passing the parameters we defined in input.js
   const [breed, setBreed] = useLocalStorage("breed", "husky");
   const [count, setCount] = useLocalStorage("count", 1);
   // we don't need setImages anymore, since we never call it
-  const [images] = useDogImages(breed, count);
+  // const [images] = useDogImages(breed, count);
+  const [images] = useState([])
 
   return (
     <>
-      <h1>The Dog Website</h1>
+      <h1>THE DOG WEBSITE</h1>
 
       <select value={breed} onChange={e => setBreed(e.target.value)}>
-        <option value="husky">Husky</option>
-        <option value="beagle">Beagle</option>
-        <option value="corgi">Corgi</option>
+        <option value="doberman">Doberman</option>
+        <option value="dalmation">Dalmation</option>
+        <option value="dane">Great Dane</option>
         <option value="boxer">Boxer</option>
       </select>
 
